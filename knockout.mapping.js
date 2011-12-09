@@ -250,7 +250,8 @@ ko.exportProperty = function (owner, publicName, object) {
 	}
 
 	function updateViewModel(mappedRootObject, rootObject, options, parentName, parent, parentPropertyName) {
-		var isArray = ko.utils.unwrapObservable(rootObject) instanceof Array;
+		var isArray = ko.utils.unwrapObservable(rootObject) instanceof Array;//jsObject 
+        var isMappedArray = ko.utils.unwrapObservable(mappedRootObject) instanceof Array;//update target
 
 		parentPropertyName = parentPropertyName || "";
 

@@ -1533,16 +1533,16 @@ test('ko.mapping.fromJS should properly map objects that appear in multiple plac
 	equal(y.x[0].title, "Lorem ipsum");
 	equal(z.x()[0].title(), "Lorem ipsum");
 });
-test('ko.mapping.fromJS should update a keyed item in an mapped observable array when the arrayUpdate option is set', function() {
-	var options = { arrayUpdate: true, key: function(item) { return ko.utils.unwrapObservable(item.a);} };
+test('ko.mapping.fromJS should update a keyed item in an mapped observable array when the incrementalArrayUpdates option is set', function() {
+	var options = { incrementalArrayUpdates:true, key: function(item) { return ko.utils.unwrapObservable(item.a);} };
 	var arr = ko.mapping.fromJS([ ko.mapping.fromJS({a: "a", b: "b" })], options);
 	var obj = {a: "a", b: "x" };
 	ko.mapping.fromJS(obj, arr);
 
 	equal(arr()[0].b(), "x");
 });
-test('ko.mapping.fromJS should insert a keyed item in an mapped observable array when the arrayInsert option is set', function() {
-	var options = { arrayInsert: true, key: function(item) { return ko.utils.unwrapObservable(item.a);} };
+test('ko.mapping.fromJS should insert a keyed item in an mapped observable array when the incrementalarrayupdates option is set', function() {
+	var options = { incrementalarrayupdates: true, key: function(item) { return ko.utils.unwrapObservable(item.a);} };
 	var arr = ko.mapping.fromJS([ ko.mapping.fromJS({a: "a", b: "b" })], options);
 	var obj = ko.mapping.fromJS({a: "b", b: "x" });
 	ko.mapping.fromJS(obj, arr);
